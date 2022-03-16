@@ -1,12 +1,10 @@
 import Student from './Student.jsx';
 import './App.css';
+import { useState } from 'react';
 
 
 function App() {
-  // * this initiates state
-  // const [count, setCount] = useState(0)
-
-  const students = [
+  const studentData = [
     {
       name: 'Cait Yomorta',
       bio: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus placeat nostrum explicabo? Voluptatibus expedita saepe officia optio, commodi totam ratione laudantium ipsum porro molestias, quasi nulla minus vitae laboriosam corrupti Delectus inventore explicabo est odit incidunt rem a recusandae eum pariatur. Aperiam doloremque blanditiis harum voluptate animi fugit beatae asperiores quo, dignissimos sed illum veniam eum accusantium nulla quod voluptatum',
@@ -66,12 +64,15 @@ function App() {
       ]
     }
   ]
+// * this initiates state
+  const [students, setStudents] = useState(studentData)
   return (
     <div>
-      This is app
-      <Student />
+      {students.map((student, idx) => (
+        <Student key={idx} student={student} />
+      ))}
     </div>
   );
 }
 
-export default App;
+export default App; 

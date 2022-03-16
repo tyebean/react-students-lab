@@ -2,17 +2,18 @@
 //     - Renders the student's `name` & `bio` properties
 //     - Renders a `<Score>` component for each score object in the student's `scores` property.
 
-import Bio from "./Bio";
-import Name from "./Name";
-import Score from "./Score";
 
 const Student = (props) => {
+  console.log(props.student)
   return ( 
     <div>
-      <Bio />
-      <Name />
-      <Score />
-      This is Student component
+      <p>Name: {props.student.name}</p>
+      <p>Bio: {props.student.bio}</p> 
+      {props.student.scores.map((score, idx) => (
+        <div key={idx}>
+          <p>Date: {score.date} Score:{score.score} </p>
+        </div>
+      ))}
     </div>
   );
 }
